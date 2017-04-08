@@ -17,6 +17,9 @@
         //echo $_POST["email"];
         
               $error = "";
+              if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+                $error = "Email invalid";
+            }
              if(empty($_POST["email"]) || empty($_POST["pass"]) || empty($_POST["name"]) || empty($_POST["job"]) || empty($_POST["role"]) || empty($_POST["userDescript"])) {
             $error = "Empty credentials.";
               } elseif ($_POST["pass"] !== $_POST["repass"]) {
