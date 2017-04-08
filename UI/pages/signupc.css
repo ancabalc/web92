@@ -1,0 +1,53 @@
+.credentials {
+    background-image:url(images/form_bg.jpg);
+	background-repeat:repeat-x;
+    border:2px solid ;
+	border-radius:10px;
+	height: 250px;
+	width: 350px;
+	padding:3px;
+	font-size: 18pt;
+	font-family:tahoma, arial, sans-serif;
+	text-align: center;
+    margin-left: 38%;
+    margin-top: 15%;
+}
+
+.credentials #signup_btn {
+   position: relative;
+    right: 0;
+    left: 0;
+  background: #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #000000);
+  background-image: -moz-linear-gradient(top, #000000, #000000);
+  background-image: -ms-linear-gradient(top, #000000, #000000);
+  background-image: -o-linear-gradient(top, #000000, #000000);
+  background-image: linear-gradient(to bottom, #000000, #000000);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: TimesNewRoman ;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.credentials #signup_btn:hover {
+  background: #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #827c02);
+  background-image: -moz-linear-gradient(top, #000000, #827c02);
+  background-image: -ms-linear-gradient(top, #000000, #827c02);
+  background-image: -o-linear-gradient(top, #000000, #827c02);
+  background-image: linear-gradient(to bottom, #000000, #827c02);
+  text-decoration: none;
+}
+
+.credentials #img {
+    background: #000000;
+    position:relative;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: white;
+}
