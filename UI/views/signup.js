@@ -14,7 +14,7 @@ function onHtmlLoaded() {
         var descriptValue = $("[name ='userDescript']").val();
         var imgFile = $("#img")[0].files[0];
         
-        var signupModel = new Signup()
+            signupModel = new Signup()
         var signupReq = signupModel.signUp({
             name: nameValue,
             email: emailValue,
@@ -31,7 +31,7 @@ function onHtmlLoaded() {
     function redirectUserToHomepage() {
         
       if (signupModel) {
-             window.location.href = "https://web92-auxentiu.c9users.io/UI/pages/index.html"
+             window.location.href = "https://web92-auxentiu.c9users.io/UI/pages/index.html";
       }
        else {
             alert ("Creation failed");

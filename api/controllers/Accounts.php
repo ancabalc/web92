@@ -19,13 +19,16 @@
               $error = "";
               if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
                 $error = "Email invalid";
+                http_response_code(400);
             }
              if(empty($_POST["email"]) || empty($_POST["pass"]) || empty($_POST["name"]) || empty($_POST["job"]) || empty($_POST["role"]) || empty($_POST["userDescript"])) {
             $error = "Empty credentials.";
+            http_response_code(400);
               } elseif ($_POST["pass"] !== $_POST["repass"]) {
             $error = "Passwords don't match!";
+            http_response_code(400);
              }elseif(strlen($_POST["pass"]) < 6 || strlen($_POST["repass"]) <6){
-                 
+                 http_response_code(400);
                  $error = "Password must be at least 6 characters long!";
              }
         

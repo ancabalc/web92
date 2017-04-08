@@ -19,19 +19,20 @@ Signup.prototype.signUp = function(credentials){
         processData: false,
         contentType: false,    
         // dataType: "json",
-        success: function(resp){
-            if (resp) {
-            that.isLogged = resp.isLogged || false;
-            }
-            console.log("success")
+       success: function(resp){
+            // if (resp) {
+            // that.isLogged = resp.isLogged || false;
+            // }
+            console.log("succes")
         },
-        error: function(xhr, status, error) {
-            alert("Oops!Something is wrong " + error);
+        error: function(xhr, textStatus, errorThrown) {
+            alert("Oops!Something is wrong " + textStatus + errorThrown);
         },
         complete: function(){
             console.log("The request is complete");
         }
     }
+
     // singIn method will return the jqXHR object returned by
     // the ajax request
     return $.ajax(config);
