@@ -11,8 +11,9 @@
         $page = str_replace(BLOG,'',$url);
         
         if (array_key_exists($page, $routes)) {
-            $class = $routes[$page]["class"]; // "Users"
-            $method = $routes[$page]["method"]; // "getAll"
+            $class = $routes[$page]["class"];
+            $method = $routes[$page]["method"];
+           
             
             $methodReq = $_SERVER["REQUEST_METHOD"];
             switch($methodReq) {
@@ -22,18 +23,27 @@
                     
                     if ($data) {
                         $_POST = $data;
+                         var_dump($_POST);
                     }
                     break;
                 case "PUT":
                 case "DELETE":
-                    $content = file_get_contents("php://input");
-                    $data = json_decode($content, true);
+                    
+                   
+                   
+                    // parse_str(file_get_contents("php://input"),$PUT);
+          
+                    // $content = file_get_contents("php://input");
+                    // $data = json_decode($content, true);
 
-                    if ($data) {
-                        $REQUEST = $data;
-                    } else {
-                        parse_str($content, $REQUEST);
-                    }
+        //             if ($data) {
+        //                 $REQUEST = $data;
+        //             } else {
+        //                 parse_str($content, $REQUEST);
+        //                 echo "tra";
+        //                  var_dump($REQUEST);
+        // exit;
+        //             }
                     break;
             }
 

@@ -4,9 +4,13 @@
 
     class Accounts {
         
+        private $usersModel;
+        
+        function __construct() {
+            $this->usersModel = new Users();   
+        }
         
          function signUser() {
-    
     
              if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === TRUE ) {
                 return array("isLogged" => $_SESSION["isLogged"]);   
@@ -65,5 +69,59 @@
             }
         } 
         
+
+        function login() {
+            if (!empty($_POST["email"]) && !empty($_POST["pass"])) {
+                $pass = crypt($_POST["pass"], PASS_SALT);
+                $usersModel =  new Users();
+                $user = $usersModel->login($_POST["email"], $pass);
+                if (is_array($user)) {
+                    $_SESSION["isLogged"] = TRUE;
+                    $_SESSION["name"] = $user["first_name"] . " " . $user["last_name"];
+                    return array("isLogged" => $_SESSION["isLogged"], "name"=>$_SESSION["name"]);
+                } else {
+                    return array("error" => "Invalid credentials.");
+                }
+                
+            } else{
+                return array("error" => "Empty credentials.");    
+            }
+        }
+        
+        function logout() {
+            unset($_SESSION["isLogged"]);
+            unset($_SESSION["name"]);
+            session_destroy();
+            
+            return array("success"=>TRUE);
+        }
+
+    function updateUser(){
+        // if (!isset($_SESSION["isLogged"]) || $_SESSION["isLogged"] !== TRUE) {
+        //         http_response_code(401);
+        //         return array("error"=>"Unauthorized. You have to be logged.");
+        //     }
+    
+        
+        if(!empty($_POST['name']) || !empty($_POST['description']) || !empty($_POST['image']) || !empty($_POST['id'])){
+            $_POST['image'] = NULL;
+                if(!empty($_FILES['image'])){
+                    $file = $_FILES['image'];
+                    move_uploaded_file($file["tmp_name"], "uploads/" . $file["name"]);
+                    $_POST['image'] = $file["name"];
+                
+                }
+            
+            return $this->usersModel->updateItem($_POST);
+        }
+        else{
+            return "All fields are required.";
+        }
+            
+    
+    }
+
+        
+
     }
     
