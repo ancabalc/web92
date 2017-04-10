@@ -12,7 +12,7 @@
         $stmt =$this ->dbh-> prepare($sql);
         $stmt->execute(array($name, $email, $pass, $role, $job, $description, $image)); 
          
-         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+         return $this->dbh->lastInsertId();
     }
     
     

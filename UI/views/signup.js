@@ -26,14 +26,16 @@ function onHtmlLoaded() {
             image: imgFile
         });
         
-        signupReq.done(redirectUserToHomepage);
+        signupReq.done(function(resp){
+            redirectUserToHomepage();
+        });
     });
     function redirectUserToHomepage() {
         
-      if (signupModel) {
+      if (signupModel.isCreated) {
              window.location.href = "https://web92-auxentiu.c9users.io/UI/pages/index.html";
       }
-       else {
+      else {
             alert ("Creation failed");
         }
     }

@@ -1,3 +1,3 @@
 <?php
 $routes = [];
-$routes['/signup'] = array ("class"=>"Accounts", "method"=>"signUser");
+$routes['/accounts/create'] = array ("class"=>"Accounts", "method"=>"signUser");
