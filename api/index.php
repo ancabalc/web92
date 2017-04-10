@@ -4,7 +4,7 @@
     require "configs/config.php";
     require "configs/routes.php";
     
-    const BLOG = '';
+    const BLOG = '/api';
     
     if (!empty($_SERVER['REDIRECT_URL'])) {
         $url = $_SERVER['REDIRECT_URL'];

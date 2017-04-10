@@ -8,7 +8,7 @@
         }
     
         function listTopProviders(){
-            if (!empty($_GET["name"]) && !empty($_GET["description"]) && !empty ($_GET["image"]),
+            if (!empty($_GET["name"]) && !empty($_GET["description"]) && !empty ($_GET["image"]))
             {
                 return $users -> getTopProviders();
             } else {
