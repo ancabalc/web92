@@ -12,7 +12,20 @@
         $stmt =$this ->dbh-> prepare($sql);
         $stmt->execute(array($name, $email, $pass, $role, $job, $description, $image)); 
          
-         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+         return $this->dbh->lastInsertId();
+    }
+    
+    function updateItem($item){
+        $sql = 'update users set name = ?, description = ?, image = ? where id = ?';
+        
+        $stmt = $this->dbh->prepare($sql);
+        
+        $stmt->execute(array($item['name'],
+                            $item['description'],
+                            $item['image'],
+                            $item['id']));
+                            
+        return $stmt->rowCount();
     }
     
     
