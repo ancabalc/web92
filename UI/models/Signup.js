@@ -13,20 +13,20 @@ Signup.prototype.signUp = function(credentials){
     formData.append("userDescript", credentials.userDescript);
     formData.append("image", credentials.image);
     var config = {
-        url: "https://web92-auxentiu.c9users.io/api/signup",
+        url: "https://web92-auxentiu.c9users.io/api/accounts/create",
         method: "POST",
         data: formData,
         processData: false,
         contentType: false,    
         // dataType: "json",
        success: function(resp){
-            // if (resp) {
-            // that.isLogged = resp.isLogged || false;
-            // }
-            console.log("succes")
+            if (resp) {
+            that.isCreated = resp.isCreated || false;
+            }
+            // console.log("success");
         },
-        error: function(xhr, textStatus, errorThrown) {
-            alert("Oops!Something is wrong " + textStatus + errorThrown);
+        error: function(xhr, status, error) {
+            alert(xhr.responseText);
         },
         complete: function(){
             console.log("The request is complete");
