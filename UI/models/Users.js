@@ -13,7 +13,7 @@ Users.prototype.update = function(userData) {
 	formData.append("image", userData.image);
 	formData.append("id", "1");
 
-	
+	var that = this;
 	var config = {
 		url: "https://web92-farki92.c9users.io/api/users/update",
 		method: "POST",
@@ -21,11 +21,16 @@ Users.prototype.update = function(userData) {
 		processData:false,        // To send DOMDocument or non processed data file it is set to false
 		contentType: false,
 		success: function(resp) {
-			console.log("all good");
+			if (resp) {
+            that.isCreated = resp.isCreated || false;
+            }
 		},
-		error: function() {
-			console.log("user was not updated");
-		}
+		error:  function(xhr, status, error) {
+            alert(xhr.responseText);
+		},
+		complete: function(){
+            console.log("The request is complete");
+        }
 	}
 	
 	return $.ajax(config);
