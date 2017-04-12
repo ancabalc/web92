@@ -5,7 +5,8 @@ function Users(options){
 	this.models = [];
 }
 Users.prototype.update = function(userData) {
-	//here we should save the new article to server
+	
+
 	var formData = new FormData();
 	formData.append("name",userData.name);
 	formData.append("description", userData.desc);
