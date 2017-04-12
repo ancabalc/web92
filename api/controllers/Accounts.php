@@ -20,8 +20,12 @@
                 $error = "";
                 
                
+            //   if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+            //             // $error = "Email invalid";
+            //             return array("error"=>"Email invalid."); 
+            //     }
                 if(empty($_POST["email"]) || empty($_POST["pass"]) || empty($_POST["name"]) || empty($_POST["job"]) || empty($_POST["role"]) || empty($_POST["userDescript"])) {
-                        $error = "Empty credentials.";
+                       //$error = "Empty credentials.";
                         //http_response_code(400);
                         return array("error"=>"Email invalid.");
                 } elseif ($_POST["pass"] !== $_POST["repass"]) {
@@ -32,10 +36,7 @@
                         //  http_response_code(400);
                         // $error = "Password must be at least 6 characters long!";
                         return array("error"=>"Password must be at least 6 characters long!");
-                } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-                        // $error = "Email invalid";
-                        return array("error"=>"Email invalid."); 
-                }
+                } 
                 if (empty($error)) {
                  
                     $signUp = new Users();
