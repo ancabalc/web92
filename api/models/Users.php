@@ -3,6 +3,13 @@
     require_once('DB.php');
     
     class Users extends DB {
+        
+    function selectUserById($id){
+        $sql ="select * from users where id = $id";
+        return $this->selectSql($sql);
+    }  
+    
+    
     function saveUser($name, $email, $pass, $role, $job,  $description, $image) {
         
      
@@ -38,4 +45,4 @@
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
-    }
+}

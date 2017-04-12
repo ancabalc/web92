@@ -14,7 +14,7 @@ function onHtmlLoaded(){
         var nameVal = $("#name").val();
         var descriptionVal = $("#desc").val();
         var imageFile = $("#image")[0].files[0];
-        // console.log(imageFile['name']);
+        
         updateUserModel = new Users();
             if(nameVal != "" && descriptionVal != ""){
             var updateReq = updateUserModel.update({

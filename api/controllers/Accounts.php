@@ -96,6 +96,11 @@
             return array("success"=>TRUE);
         }
 
+    function getUserById(){
+            return $this->usersModel->selectUserById($_GET['id']);
+        
+    }
+
     function updateUser(){
         // if (!isset($_SESSION["isLogged"]) || $_SESSION["isLogged"] !== TRUE) {
         //         http_response_code(401);
