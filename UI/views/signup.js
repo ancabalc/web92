@@ -36,7 +36,7 @@ function onHtmlLoaded() {
              window.location.href = "https://web92-auxentiu.c9users.io/UI/pages/index.html";
       }
       else {
-            alert ("Creation failed");
+             alert("Account creation failed");
         }
     }
 }

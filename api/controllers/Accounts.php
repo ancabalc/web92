@@ -23,7 +23,7 @@
                 if(empty($_POST["email"]) || empty($_POST["pass"]) || empty($_POST["name"]) || empty($_POST["job"]) || empty($_POST["role"]) || empty($_POST["userDescript"])) {
                         $error = "Empty credentials.";
                         //http_response_code(400);
-                        return array("error"=>"Email invalid.");
+                        return array("error"=>"Empty credentials.");
                 } elseif ($_POST["pass"] !== $_POST["repass"]) {
                         // $error = "Passwords don't match!";
                         // http_response_code(400);
@@ -38,7 +38,7 @@
                 }
                 if (empty($error)) {
                  
-                    $signUp = new Users();
+                   
                     $email = $_POST["email"];
 
                     $pass = crypt($_POST["pass"], PASS_SALT);
@@ -46,15 +46,18 @@
                     $name = $_POST["name"];
                     $description = $_POST["userDescript"];
                     $role = $_POST["role"];
-                    
+                    $image = '';
                         if (isset($_FILES['image'])) {
                                 $file = $_FILES['image'];
                                 move_uploaded_file($file["tmp_name"], "uploads/" . $file["name"]);
                                 $_POST['image'] = $file["name"];
+                                $image = $_POST['image'];
                             }
-                        $image = $_POST['image'];
-            
-                        $result =$signUp-> saveUser($name, $email, $pass, $role, $job, $description, $image);
+                        
+                        
+                        
+                        
+                        $result = $this->usersModel ->saveUser($name, $email, $pass, $role, $job, $description, $image);
            
                 if ($result > 0) {
                      return ( "User with email $email was successfully created");

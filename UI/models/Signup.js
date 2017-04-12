@@ -26,7 +26,7 @@ Signup.prototype.signUp = function(credentials){
             // console.log("success");
         },
         error: function(xhr, status, error) {
-            alert(xhr.responseText);
+            alert("Oops!Something is wrong " + xhr.responseText);
         },
         complete: function(){
             console.log("The request is complete");
