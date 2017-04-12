@@ -1,10 +1,10 @@
 <?php
     require "models/UsersModel.php";
     class Users {
-       private $articlesModel;
+       private $usersModel;
         
         function __construct(){
-            $this->articlesModel = new ArticlesModel;
+            $this->usersModel = new UsersModel;
         }
     
         function listTopProviders(){
