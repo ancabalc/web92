@@ -12,6 +12,7 @@ Signup.prototype.signUp = function(credentials){
     formData.append("job", credentials.job);
     formData.append("userDescript", credentials.userDescript);
     formData.append("image", credentials.image);
+    console.log (credentials);
     var config = {
         url: "https://web92-auxentiu.c9users.io/api/accounts/create",
         method: "POST",
@@ -22,8 +23,9 @@ Signup.prototype.signUp = function(credentials){
        success: function(resp){
             if (resp) {
             that.isCreated = resp.isCreated || false;
+            console.log (that.isCreated);
             }
-            // console.log("success");
+            
         },
         error: function(xhr, status, error) {
             alert("Oops!Something is wrong " + xhr.responseText);

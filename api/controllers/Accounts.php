@@ -24,7 +24,7 @@
             //             // $error = "Email invalid";
             //             return array("error"=>"Email invalid."); 
             //     }
-                if(empty($_POST["email"]) || empty($_POST["pass"]) || empty($_POST["name"]) || empty($_POST["job"]) || empty($_POST["role"]) || empty($_POST["userDescript"])) {
+                if(empty($_POST["email"]) || empty($_POST["pass"]) || empty($_POST["name"]) || empty($_POST["job"]) || empty($_POST["role"])) {
                        //$error = "Empty credentials.";
                         //http_response_code(400);
                         return array("error"=>"Empty credentials.");
@@ -45,7 +45,7 @@
                     $pass = crypt($_POST["pass"], PASS_SALT);
                     $job = $_POST["job"];
                     $name = $_POST["name"];
-                    $description = $_POST["userDescript"];
+                    $description = '';
                     $role = $_POST["role"];
                     $image = '';
                         if (isset($_FILES['image'])) {
@@ -55,7 +55,9 @@
                                 $image = $_POST['image'];
                             }
                         
-                        
+                        if (isset($_POST["userDescript"])) {
+                            $description = $_POST["userDescript"];
+                        }
                         
                         
                         $result = $this->usersModel ->saveUser($name, $email, $pass, $role, $job, $description, $image);
@@ -63,7 +65,7 @@
                 if ($result > 0) {
                      return ( "User with email $email was successfully created");
                   } else {
-                      return ("unable to create");
+                      return ("Unable to create");
                         }
                 }
                  else {

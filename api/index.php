@@ -31,19 +31,19 @@
                     
                    
                    
-                    // parse_str(file_get_contents("php://input"),$PUT);
+                    parse_str(file_get_contents("php://input"),$PUT);
           
-                    // $content = file_get_contents("php://input");
-                    // $data = json_decode($content, true);
+                    $content = file_get_contents("php://input");
+                    $data = json_decode($content, true);
 
-        //             if ($data) {
-        //                 $REQUEST = $data;
-        //             } else {
-        //                 parse_str($content, $REQUEST);
-        //                 echo "tra";
-        //                  var_dump($REQUEST);
-        // exit;
-        //             }
+                    if ($data) {
+                        $REQUEST = $data;
+                    } else {
+                        parse_str($content, $REQUEST);
+                        echo "tra";
+                         var_dump($REQUEST);
+        exit;
+                    }
                     break;
             }
 

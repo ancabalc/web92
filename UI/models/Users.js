@@ -35,3 +35,4 @@ Users.prototype.update = function(userData) {
 	
 	return $.ajax(config);
 }
+

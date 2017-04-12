@@ -35,3 +35,5 @@ function onHtmlLoaded(){
              window.location.href = "https://web92-farki92.c9users.io/UI/pages/index.html";
     }
 }
+
+
