@@ -23,13 +23,14 @@
     }
     
     function updateItem($item){
-        $sql = 'update users set name = ?, description = ?, image = ? where id = ?';
+        $sql = 'update users set name = ?, description = ?, image = ?, job = ? where id = ?';
         
         $stmt = $this->dbh->prepare($sql);
         
         $stmt->execute(array($item['name'],
                             $item['description'],
                             $item['image'],
+                            $item['job'],
                             $item['id']));
                             
         return $stmt->rowCount();

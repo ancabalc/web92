@@ -7,9 +7,10 @@ function Users(options){
 Users.prototype.update = function(userData) {
 	
 	var formData = new FormData();
-	formData.append("name",userData.name);
+	formData.append("name", userData.name);
 	formData.append("description", userData.desc);
 	formData.append("image", userData.image);
+	formData.append("job", userData.job);
 	formData.append("id", "1");
 
 	var that = this;
@@ -25,7 +26,7 @@ Users.prototype.update = function(userData) {
             }
 		},
 		error:  function(xhr, status, error) {
-            alert(xhr.responseText);
+            alert("error");
 		},
 		complete: function(){
             console.log("The request is complete");

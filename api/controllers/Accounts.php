@@ -97,7 +97,7 @@
         }
 
     function getUserById(){
-            return $this->usersModel->selectUserById($_GET['id']);
+            return $this->usersModel->selectUserById("1");
         
     }
 
@@ -108,7 +108,7 @@
         //     }
     
         
-        if(!empty($_POST['name']) || !empty($_POST['description']) || !empty($_POST['image']) || !empty($_POST['id'])){
+        if(!empty($_POST['name']) || !empty($_POST['description']) || !empty($_POST['image']) || !empty($_POST['job']) ||!empty($_POST['id'])){
             $_POST['image'] = NULL;
                 if(!empty($_FILES['image'])){
                     $file = $_FILES['image'];
