@@ -1,19 +1,24 @@
 /* global $ */
+/* global nameValue */
+/* global passValue */
+/* global emailValue */
+/* global repassValue */
+/* global roleValue */
 $(document).ready(onHtmlLoaded);
 
 function onHtmlLoaded() {
-    var signupBtn = $("#signup_btn");
+    var signupBtn =$("button[type='submit']");
     var signupModel;
     signupBtn.on("click", function() {
-        var nameValue = $("[name ='userName']").val();
-        var emailValue = $("[name='user_email']").val();
-        var passValue =$("[name='user_password']").val();
-        var repassValue =$("[name='user_repass']").val();
-        var roleValue = $("[name ='role']").val();
-        var jobValue = $("[name ='job']").val();
-        var descriptValue = $("[name ='userDescript']").val();
-        var imgFile = $("#img")[0].files[0];
-        
+        var nameValue = $("input[name='name']").val();
+        var emailValue = $("input[name='email']").val()
+        var passValue =$("input[name='password']").val()
+        var repassValue =$("input[name='repassword']").val()
+        var roleValue = $("input[type='radio']").val();
+        var descriptValue = $("input[name='description']").val()
+        var jobValue= $("input[name='job']").val()
+        var imgFile = $("input[name='image']")[0].files[0];
+    
             signupModel = new Signup()
         var signupReq = signupModel.signUp({
             name: nameValue,
@@ -25,18 +30,23 @@ function onHtmlLoaded() {
             userDescript: descriptValue,
             image: imgFile
         });
-        
+      
         signupReq.done(function(resp){
             redirectUserToHomepage();
         });
     });
+        
+
+        
+        
     function redirectUserToHomepage() {
         
       if (signupModel.isCreated) {
              window.location.href = "https://web92-auxentiu.c9users.io/UI/pages/index.html";
       }
-      else {
-            alert ("Creation failed");
-        }
+    //   else {
+    //     //   console.log (signupModel.isCreated);
+    //          alert("Account creation failed");
+    //     }
     }
 }

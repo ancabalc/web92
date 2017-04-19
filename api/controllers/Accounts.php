@@ -24,10 +24,10 @@
             //             // $error = "Email invalid";
             //             return array("error"=>"Email invalid."); 
             //     }
-                if(empty($_POST["email"]) || empty($_POST["pass"]) || empty($_POST["name"]) || empty($_POST["job"]) || empty($_POST["role"]) || empty($_POST["userDescript"])) {
+                if(empty($_POST["email"]) || empty($_POST["pass"]) || empty($_POST["name"]) || empty($_POST["job"]) || empty($_POST["role"])) {
                        //$error = "Empty credentials.";
                         //http_response_code(400);
-                        return array("error"=>"Email invalid.");
+                        return array("error"=>"Empty credentials.");
                 } elseif ($_POST["pass"] !== $_POST["repass"]) {
                         // $error = "Passwords don't match!";
                         // http_response_code(400);
@@ -39,28 +39,33 @@
                 } 
                 if (empty($error)) {
                  
-                    $signUp = new Users();
+                   
                     $email = $_POST["email"];
 
                     $pass = crypt($_POST["pass"], PASS_SALT);
                     $job = $_POST["job"];
                     $name = $_POST["name"];
-                    $description = $_POST["userDescript"];
+                    $description = '';
                     $role = $_POST["role"];
-                    
+                    $image = '';
                         if (isset($_FILES['image'])) {
                                 $file = $_FILES['image'];
                                 move_uploaded_file($file["tmp_name"], "uploads/" . $file["name"]);
                                 $_POST['image'] = $file["name"];
+                                $image = $_POST['image'];
                             }
-                        $image = $_POST['image'];
-            
-                        $result =$signUp-> saveUser($name, $email, $pass, $role, $job, $description, $image);
+                        
+                        if (isset($_POST["userDescript"])) {
+                            $description = $_POST["userDescript"];
+                        }
+                        
+                        
+                        $result = $this->usersModel ->saveUser($name, $email, $pass, $role, $job, $description, $image);
            
                 if ($result > 0) {
                      return ( "User with email $email was successfully created");
                   } else {
-                      return ("unable to create");
+                      return ("Unable to create");
                         }
                 }
                  else {
@@ -96,6 +101,11 @@
             return array("success"=>TRUE);
         }
 
+    function getUserById(){
+            return $this->usersModel->selectUserById("1");
+        
+    }
+
     function updateUser(){
         // if (!isset($_SESSION["isLogged"]) || $_SESSION["isLogged"] !== TRUE) {
         //         http_response_code(401);
@@ -103,7 +113,7 @@
         //     }
     
         
-        if(!empty($_POST['name']) || !empty($_POST['description']) || !empty($_POST['image']) || !empty($_POST['id'])){
+        if(!empty($_POST['name']) || !empty($_POST['description']) || !empty($_POST['image']) || !empty($_POST['job']) ||!empty($_POST['id'])){
             $_POST['image'] = NULL;
                 if(!empty($_FILES['image'])){
                     $file = $_FILES['image'];

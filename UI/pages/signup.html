@@ -43,6 +43,7 @@
     <!-- BODY -->
     <body>
 
+
         <!--========== HEADER ==========-->
         <header class="header">
             <!-- Navbar -->
@@ -133,10 +134,11 @@
                     </div>
                 </div>
                 <!--// end row -->
+
     
                 <div class="row">
                     <div class="col-md-8 col-sm-7">
-                        <form method="POST" id="register-form" class="form-horizontal" enctype="multipart/form-data">
+                        <section id="register-form" class="form-horizontal">
                             <div class="form-group">
                                 <label class="col-sm-6 control-label" for="name">Nume (obligatoriu):</label>
                                 <div class="col-sm-6">
@@ -168,6 +170,12 @@
                                     <input type="radio"  name="role" value="provider" class="role-input"> Furnizor
                                 </div>
                             </div>
+                             <div class="form-group">
+                                <label class="col-sm-6 control-label" for="job">Job (optional):</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control job-input" id="job" name="job" placeholder="Job">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-6 control-label" for="description">Scurta descriere (optional):</label>
                                 <div class="col-sm-6">
@@ -181,7 +189,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase sign-up-btn">Sign up</button>
-                        </form>
+                        </section>
                     </div>
                 </div>
                 <!--// end row -->
@@ -269,8 +277,8 @@
         <script src="../layout/js/components/wow.min.js" type="text/javascript"></script>
         <script src="../layout/js/components/swiper.min.js" type="text/javascript"></script>
         <script src="../layout/js/components/masonry.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="../models/Users.js"></script>
-        <script type="text/javascript" src="../views/signUp.js"></script>
+        <script type="text/javascript" src="../models/Signup.js"></script>
+        <script type="text/javascript" src="../views/signup.js"></script>
     </body>
     <!-- END BODY -->
 </html>

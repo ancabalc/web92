@@ -38,6 +38,9 @@
         <script src="//code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
         <script type="text/javascript" src="../views/checkSession.js"></script>
         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../models/Users.js"></script>
+        <script type="text/javascript" src="../views/users.js"></script>
     </head>
     <!-- END HEAD -->
 
@@ -139,14 +142,14 @@
                         <div class="wow zoomIn animated" data-wow-duration=".3" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;">
                             <img class="img-responsive" src="" alt="User Image">
                         </div>
-                            <input type="file" name="image" id="file"/>
+                            <input type="file" name="image" id="image"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-5 col-sm-7">
-                        <form>
+                        <section>
                             <div class="margin-b-10">
-                                <input type="text" class="form-control" placeholder="Name" name="name">
+                                <input type="text" class="form-control" placeholder="Name" name="name" id="name">
                             </div>
                             <!--<div class="margin-b-10">-->
                             <!--    <input type="text" class="form-control" placeholder="Email" value="email">-->
@@ -155,13 +158,13 @@
                             <!--    <input type="password" class="form-control" placeholder="Password">-->
                             <!--</div>-->
                             <div class="margin-b-10">
-                                <input type="text" class="form-control" placeholder="Job" job="job">
+                                <input type="text" class="form-control" placeholder="Job" job="job" id="job">
                             </div>
                             <div class="margin-b-10">
-                                <textarea type="text" class="form-control" placeholder="Description" description="description"></textarea>
+                                <textarea type="text" class="form-control" placeholder="Description" description="description" id="desc"></textarea>
                             </div>
-                            <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Save</button>
-                        </form>
+                            <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase" id="save_btn">Save</button>
+                        </section>
                     </div>
                 </div>
                 <!--// end row -->
