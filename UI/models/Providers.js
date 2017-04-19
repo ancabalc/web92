@@ -1,18 +1,24 @@
 /* global Provider */
-/* global providers */
 /* global $ */
 function Providers (){
 	this.models = [];
 }
 
 Providers.prototype.getTopThree = function() {
-
- 	if (providers) {
- 		for (var i=0; i<providers.length; i++) {
- 			var provider = new Provider (providers[i]);
- 			this.models.push(provider);
-            }
- 	console.log(providers);
-	console.log(this.models);
-}
-};
+	
+		var that = this;
+		var config = {
+			url: "https://web92-rebekkanechita.c9users.io/api/users/list",
+			method: "GET",
+			success: function(resp) {
+				for (var i=0; i<resp.length; i++) {
+					var provider = new Provider (resp[i]);
+					that.models.push(provider);
+				}
+			},
+			error: function(){
+				console.log("Something went wrong while getting the providers");
+			}
+		};
+		return $.ajax(config);
+	};
