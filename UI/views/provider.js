@@ -1,16 +1,15 @@
 /*global $*/
-/*global Article*/
+/*global Provider*/
 $(document).ready(onHtmlLoaded);
 
 function onHtmlLoaded() {
-	var provider = new Provider();
-	provider.getTopThree;
+	var provider = new Provider({});
 	var containerElement=$(".row-prov");
-	provider.done (function() {
+	provider.getTopThree().done(function() {
         generateProviderName(provider.name);
         generateProviderDescription(provider.description);
         generateProviderImage(provider.image);
-	})
+	});
 	
     //generates a h2 element,adds the title and append the element to the container 
     function generateProviderName(providerName){
