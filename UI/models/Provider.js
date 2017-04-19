@@ -14,7 +14,7 @@ Provider.prototype.getTopThree = function(data){
     method: "GET",
     dataType: "json",
     success: function(resp){
-        console.log(resp);
+        //provider.name, provider.description, provider.image;
     },
     error: function(xhr, status, error) {
         alert("Oops!Something is wrong " + error);
