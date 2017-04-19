@@ -101,6 +101,11 @@
             return array("success"=>TRUE);
         }
 
+    function getUserById(){
+            return $this->usersModel->selectUserById("1");
+        
+    }
+
     function updateUser(){
         // if (!isset($_SESSION["isLogged"]) || $_SESSION["isLogged"] !== TRUE) {
         //         http_response_code(401);
@@ -108,7 +113,7 @@
         //     }
     
         
-        if(!empty($_POST['name']) || !empty($_POST['description']) || !empty($_POST['image']) || !empty($_POST['id'])){
+        if(!empty($_POST['name']) || !empty($_POST['description']) || !empty($_POST['image']) || !empty($_POST['job']) ||!empty($_POST['id'])){
             $_POST['image'] = NULL;
                 if(!empty($_FILES['image'])){
                     $file = $_FILES['image'];
