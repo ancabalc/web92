@@ -27,5 +27,4 @@ Provider.prototype.getTopThree = function(data){
  return $.ajax(config);
 };
 
-}
 

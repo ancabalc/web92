@@ -14,7 +14,7 @@ function onHtmlLoaded() {
         var emailValue = $("input[name='email']").val()
         var passValue =$("input[name='password']").val()
         var repassValue =$("input[name='repassword']").val()
-        var roleValue = $("input[type='radio']").val();
+        var roleValue = $("input[type='radio']:checked").val();
         var descriptValue = $("input[name='description']").val()
         var jobValue= $("input[name='job']").val()
         var imgFile = $("input[name='image']")[0].files[0];
@@ -44,9 +44,9 @@ function onHtmlLoaded() {
       if (signupModel.isCreated) {
              window.location.href = "https://web92-auxentiu.c9users.io/UI/pages/index.html";
       }
-    //   else {
-    //     //   console.log (signupModel.isCreated);
-    //          alert("Account creation failed");
-    //     }
+      else {
+          console.log (signupModel.isCreated);
+             alert("Account creation failed");
+        }
     }
 }
