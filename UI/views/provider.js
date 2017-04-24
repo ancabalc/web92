@@ -1,16 +1,19 @@
 /*global $*/
-/*global Provider*/
+/*global Providers*/
 $(document).ready(onHtmlLoaded);
 
 function onHtmlLoaded() {
-	var provider = new Provider({});
+	var providers = new Providers();
 	var containerElement=$(".row-prov");
-	provider.getTopThree().done(function() {
-        generateProviderName(provider.name);
-        generateProviderDescription(provider.description);
-        generateProviderImage(provider.image);
-	});
-	
+	providers.getTopThree().done(function() {
+	    //for providers.models [i]
+	    for (var i=0; i<providers.models.length; i++){
+	    
+        generateProviderName(providers.models[i].name);
+        generateProviderDescription(providers.models[i].description);
+        generateProviderImage(providers.models[i].image);
+	    }
+})
     //generates a h2 element,adds the title and append the element to the container 
     function generateProviderName(providerName){
         var providerNameElem = $("<h2></h2>");

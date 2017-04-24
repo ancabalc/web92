@@ -5,6 +5,7 @@ function Provider(options){
     this.name = options.name;
     this.description = options.description;
     this.image = options.image;
+
 }
 
 Provider.prototype.getTopThree = function(data){
@@ -25,3 +26,6 @@ Provider.prototype.getTopThree = function(data){
 };
  return $.ajax(config);
 };
+
+}
+
