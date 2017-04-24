@@ -6,31 +6,54 @@ function onHtmlLoaded() {
 	var providers = new Providers();
 	var containerElement=$(".row-prov");
 	providers.getTopThree().done(function() {
-	    //for providers.models [i]
+	 
 	    for (var i=0; i<providers.models.length; i++){
-	    
+        
+        generateImageDiv(i);
+        generateImageDiv2(i);
+        generateImageDiv3(i);
+        generateProviderImage(providers.models[i].image);
         generateProviderName(providers.models[i].name);
         generateProviderDescription(providers.models[i].description);
-        generateProviderImage(providers.models[i].image);
 	    }
-})
-    //generates a h2 element,adds the title and append the element to the container 
+});
+    function generateImageDiv(i){
+        var imageDivElement = $("<div></div>");
+        imageDivElement.addClass("col-sm-4 sm-margin-b-50 jsImgDiv" + i);
+        containerElement.append(imageDivElement);
+    }
+    function generateImageDiv2(i){
+        var imageDivElement = $("<div></div>");
+        imageDivElement.addClass("bg-color-white margin-b-20 jsImgDiv2" + i);
+        var containerElement = $(".jsImgDiv" + i);
+        containerElement.append(imageDivElement);
+    }
+    function generateImageDiv3(i){
+        var imageDivElement=$("<div></div>");
+        imageDivElement.addClass("wow zoomIn jsImgDiv3");
+        var containerElement = $(".jsImgDiv2" + i);
+        containerElement.append(imageDivElement);
+        
+    }
+
+    function generateProviderImage(providerImage){
+        var providerImageElem = $("<img />");
+        providerImageElem.html(providerImage);
+        var containerElement = $(".jsImgDiv3");
+        containerElement.append(providerImageElem);
+    }
+ 
     function generateProviderName(providerName){
-        var providerNameElem = $("<h2></h2>");
+        var providerNameElem = $("<h4></h4>");
         providerNameElem.html(providerName);
         containerElement.append(providerNameElem);
     }
     
-     //generates an article element,adds the content and append the element to the container
+     
     function generateProviderDescription(providerDescription){
-        var providerDescriptionElem = $("<article></article>");
+        var providerDescriptionElem = $("<p></p>");
         providerDescriptionElem.html(providerDescription);
         containerElement.append(providerDescriptionElem);
     }
 
-    function generateProviderImage(providerImage){
-        var providerImageElem = $("<article></article>");
-        providerImageElem.html(providerImage);
-        containerElement.append(providerImageElem);
-    }
 }

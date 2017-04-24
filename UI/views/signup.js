@@ -14,7 +14,7 @@ function onHtmlLoaded() {
         var emailValue = $("input[name='email']").val()
         var passValue =$("input[name='password']").val()
         var repassValue =$("input[name='repassword']").val()
-        var roleValue = $("input[type='radio']").val();
+        var roleValue = $("input[type='radio']:checked").val();
         var descriptValue = $("input[name='description']").val()
         var jobValue= $("input[name='job']").val()
         var imgFile = $("input[name='image']")[0].files[0];
