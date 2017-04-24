@@ -3,13 +3,6 @@
     require_once('DB.php');
     
     class Users extends DB {
-        
-    function selectUserById($id){
-        $sql ="select * from users where id = $id";
-        return $this->selectSql($sql);
-    }  
-    
-    
     function saveUser($name, $email, $pass, $role, $job,  $description, $image) {
         
      
@@ -23,14 +16,13 @@
     }
     
     function updateItem($item){
-        $sql = 'update users set name = ?, description = ?, image = ?, job = ? where id = ?';
+        $sql = 'update users set name = ?, description = ?, image = ? where id = ?';
         
         $stmt = $this->dbh->prepare($sql);
         
         $stmt->execute(array($item['name'],
                             $item['description'],
                             $item['image'],
-                            $item['job'],
                             $item['id']));
                             
         return $stmt->rowCount();
@@ -46,4 +38,4 @@
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
-}
+    }
