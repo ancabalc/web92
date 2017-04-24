@@ -16,14 +16,20 @@ class UsersModel extends DB {
     }  
     
     
-    function saveUser($name, $email, $pass, $role, $job,  $description, $image) {
+    function saveUser($users) {
         
      
         
         $sql = 'insert into users (name, email, password, role, job, description, image) values(?, ?, ?, ?, ?, ?, ?)';
         
         $stmt =$this ->dbh-> prepare($sql);
-        $stmt->execute(array($name, $email, $pass, $role, $job, $description, $image)); 
+        $stmt->execute(array($users['name'],
+                             $users['email'],
+                             $users['pass'],
+                             $users['role'],
+                             $users['job'],
+                             $users['userDescript'],
+                             $users['image'])); 
          
          return $this->dbh->lastInsertId();
     }

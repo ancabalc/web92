@@ -19,13 +19,15 @@ Signup.prototype.signUp = function(credentials){
         data: formData,
         processData: false,
         contentType: false,    
-        // dataType: "json",
+        dataType: "json",
        success: function(resp){
             if (resp) {
-            that.isCreated = resp.isCreated || false;
-            console.log (that.isCreated);
-                if (that.isCreated === false){
-                    alert ("Check network for response! Fixing the error in progress.")
+                if (resp.error){
+                   // alert ("Check network for response! Fixing the error in progress.");
+                   console.log("error in resp")
+                    that.isCreated = false;
+                } else {
+                    that.isCreated = true;
                 }
             }
             

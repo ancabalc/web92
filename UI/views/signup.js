@@ -44,9 +44,9 @@ function onHtmlLoaded() {
       if (signupModel.isCreated) {
              window.location.href = "https://web92-auxentiu.c9users.io/UI/pages/index.html";
       }
-    //   else {
-    //     //   console.log (signupModel.isCreated);
-    //          alert("Account creation failed");
-    //     }
+      else {
+          console.log (signupModel.isCreated);
+             alert("Account creation failed");
+        }
     }
 }

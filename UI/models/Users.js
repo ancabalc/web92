@@ -36,8 +36,6 @@ Users.prototype.update = function(userData) {
 	return $.ajax(config);
 }
 
-<<<<<<< HEAD
-=======
 Users.prototype.getUserById = function(){
 	var that = this;
 	var config = {
@@ -56,4 +54,4 @@ Users.prototype.getUserById = function(){
 	};
 	return $.ajax(config);
 };
->>>>>>> 5a4e331fb771fb812fd902f3115b2d637a440681
+
