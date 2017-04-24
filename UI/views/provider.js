@@ -38,7 +38,7 @@ function onHtmlLoaded() {
 
     function generateProviderImage(providerImage, i){
         var providerImageElem = $("<img />");
-        providerImageElem.html(providerImage);
+        providerImageElem.prepend(providerImage);
         var containerElement = $(".jsImgDiv3");
         containerElement.append(providerImageElem);
     }
@@ -50,7 +50,6 @@ function onHtmlLoaded() {
         containerElement.append(providerNameElem);
     }
     
-     
     function generateProviderDescription(providerDescription, i){
         var providerDescriptionElem = $("<p></p>");
         providerDescriptionElem.html(providerDescription);
