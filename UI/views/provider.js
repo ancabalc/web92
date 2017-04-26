@@ -12,7 +12,7 @@ function onHtmlLoaded() {
         generateImageDiv(i);
         generateImageDiv2(i);
         generateImageDiv3(i);
-        generateProviderImage(providers.models[i].image, i);
+        generateProviderImage(providers.models[i].image);
         generateProviderName(providers.models[i].name, i);
         generateProviderDescription(providers.models[i].description, i);
 	    }
@@ -36,9 +36,10 @@ function onHtmlLoaded() {
         
     }
 
-    function generateProviderImage(providerImage, i){
+    function generateProviderImage(providerImage){
         var providerImageElem = $("<img />");
-        providerImageElem.prepend(providerImage);
+        //providerImageElem.prepend(providerImage);
+        providerImageElem.attr("src", "../../api/uploads/" + providerImage);
         var containerElement = $(".jsImgDiv3");
         containerElement.append(providerImageElem);
     }
@@ -56,5 +57,5 @@ function onHtmlLoaded() {
         var containerElement = $(".jsImgDiv" + i);
         containerElement.append(providerDescriptionElem);
     }
-// name si description in primul div creeat de mine append - > //
+
 }
