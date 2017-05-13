@@ -11,7 +11,7 @@ function Provider(options){
 Provider.prototype.getTopThree = function(data){
   var config = {
  
-    url: "https://web92-auxentiu.c9users.io/api/users/list",
+    url: "https://web92-rebekkanechita.c9users.io/api/users/list",
     method: "GET",
     dataType: "json",
     success: function(resp){
