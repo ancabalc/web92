@@ -8,7 +8,7 @@ Providers.prototype.getTopThree = function() {
 	
 		var that = this;
 		var config = {
-			url: "https://web92-rebekkanechita.c9users.io/api/users/list",
+			url: "https://web92-auxentiu.c9users.io/api/users/list",
 			method: "GET",
 			success: function(resp) {
 				for (var i=0; i<resp.length; i++) {

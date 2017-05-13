@@ -66,11 +66,11 @@
         function login() {
             if (!empty($_POST["email"]) && !empty($_POST["pass"])) {
                 $pass = crypt($_POST["pass"], PASS_SALT);
-                $usersModel =  new Users();
+                $usersModel =  new UsersModel();
                 $user = $usersModel->login($_POST["email"], $pass);
                 if (is_array($user)) {
                     $_SESSION["isLogged"] = TRUE;
-                    $_SESSION["name"] = $user["first_name"] . " " . $user["last_name"];
+                    $_SESSION["name"] = $user["name"];
                     return array("isLogged" => $_SESSION["isLogged"], "name"=>$_SESSION["name"]);
                 } else {
                     return array("error" => "Invalid credentials.");

@@ -38,7 +38,7 @@ function onHtmlLoaded() {
 
     function generateProviderImage(providerImage, i){
         var providerImageElem = $("<img />");
-        providerImageElem.prepend(providerImage);
+        providerImageElem.attr("src", "../../api/uploads/" + providerImage);
         var containerElement = $(".jsImgDiv3");
         containerElement.append(providerImageElem);
     }

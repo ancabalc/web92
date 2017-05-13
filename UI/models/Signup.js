@@ -14,7 +14,7 @@ Signup.prototype.signUp = function(credentials){
     formData.append("image", credentials.image);
     console.log (credentials);
     var config = {
-        url: "https://web92-rebekkanechita.c9users.io/api/accounts/create",
+        url: "https://web92-auxentiu.c9users.io/api/accounts/create",
         method: "POST",
         data: formData,
         processData: false,
@@ -39,8 +39,5 @@ Signup.prototype.signUp = function(credentials){
             console.log("The request is complete");
         }
     }
-
-    // singIn method will return the jqXHR object returned by
-    // the ajax request
     return $.ajax(config);
 }

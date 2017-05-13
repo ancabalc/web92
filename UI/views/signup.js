@@ -1,9 +1,5 @@
 /* global $ */
-/* global nameValue */
-/* global passValue */
-/* global emailValue */
-/* global repassValue */
-/* global roleValue */
+
 $(document).ready(onHtmlLoaded);
 
 function onHtmlLoaded() {
@@ -42,7 +38,7 @@ function onHtmlLoaded() {
     function redirectUserToHomepage() {
         
       if (signupModel.isCreated) {
-             window.location.href = "https://web92-rebekkanechita.c9users.io/UI/pages/index.html";
+             window.location.href = "https://web92-auxentiu.c9users.io/UI/pages/index.html";
       }
       else {
           console.log (signupModel.isCreated);

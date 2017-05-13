@@ -55,3 +55,40 @@ Users.prototype.getUserById = function(){
 	return $.ajax(config);
 };
 
+
+
+
+Users.prototype.signIn = function(credentials){
+    // var formsData = new FormData();
+    // formsData.append("email", credentials.email);
+    // formsData.append("pass", credentials.pass);
+    
+    var that=this;
+    var config = {
+        url: "https://web92-auxentiu.c9users.io/api/accounts/login",
+        method: "POST",
+        // data: formsData,
+        data:{
+        	"email":credentials.email,
+        	"pass": credentials.pass
+        },
+        dataType: "json",
+        success:  function(resp){
+            if (resp) {
+                if (resp.error){
+                   console.log("error in resp")
+                    that.isLogged = false;
+                } else {
+                    that.isLogged = true;
+                }
+            }
+        },
+        error: function(xhr, status, error) {
+            alert("Oops!Something is wrong " + error);
+        },
+        complete: function(){
+            console.log("The request is complete");
+        },
+    };
+  return $.ajax(config);
+};
